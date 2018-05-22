@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout}">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login</title>
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<h1>
+			<span th:text="#{app.title}">: <span sec:authentication="name"></span>
+
+		</h1>
+	</div>
+</body>
+</html>

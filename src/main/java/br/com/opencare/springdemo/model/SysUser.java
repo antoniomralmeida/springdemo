@@ -18,6 +18,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+
 @Entity
 public class SysUser {
 
@@ -26,9 +27,9 @@ public class SysUser {
 	private long id;
 
 	@Column(length = 40, nullable = false)
-	@Size(min = 10, message = "Enter at least 10 Characters.")
+	@Size(min = 10)
 	private String name;
-	
+
 	@Column(length = 40, nullable = false, unique = true)
 	@Email
 	@NotEmpty
@@ -103,6 +104,5 @@ public class SysUser {
 	public void setTimestamp(Timestamp timestamp) {
 		this.timestamp = timestamp;
 	}
-	
-	
+
 }
