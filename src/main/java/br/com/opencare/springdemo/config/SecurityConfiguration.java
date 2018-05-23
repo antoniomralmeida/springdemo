@@ -54,11 +54,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 		.antMatchers("/", "/images/**", "/css/**", "/webjars/**", "/error", "/sysuser/new/**").permitAll().anyRequest()
-		.authenticated().and().formLogin().loginPage("/login").permitAll();
-
-		
+		.authenticated().and().formLogin().loginPage("/login").permitAll().failureUrl("/login?error").successForwardUrl("/").permitAll();
 	}
 
+	public static Boolean isFullyAuthenticated() {
+		return !SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser");
+	}
+	
 	public static Authentication getAuth() {
 		return SecurityContextHolder.getContext().getAuthentication();
 	}
