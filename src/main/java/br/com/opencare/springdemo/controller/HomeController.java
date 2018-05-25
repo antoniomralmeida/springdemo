@@ -1,6 +1,7 @@
 package br.com.opencare.springdemo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.opencare.springdemo.config.SecurityConfiguration;
@@ -15,9 +16,8 @@ public class HomeController {
 
 
 	@RequestMapping("/")
-	public String splash() {
-		System.out.println(SecurityConfiguration.getAuth().getName());
-		
+	public String splash(Model model) {
+		model.addAttribute("message", "teste");
 		if (SecurityConfiguration.isFullyAuthenticated())
 			return "home";
 		else

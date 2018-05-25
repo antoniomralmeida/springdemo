@@ -2,15 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-	layout:decorate="~{layout}">
+	layout:decorate="~{base}">
 <head>
-<title>Login</title>
+<title>SPLASH</title>
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css">
+
 </head>
 <body>
 	<div layout:fragment="content">
-		<h1>
-			<span >SPLASH</span>: <span sec:authentication="name"></span>
-		</h1>
+		<!-- Header -->
+		<div class="intro-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="intro-message">
+							<h1>SPRING</h1>
+							<h3>Spring: the source for modern java</h3>
+							<hr class="intro-divider">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
