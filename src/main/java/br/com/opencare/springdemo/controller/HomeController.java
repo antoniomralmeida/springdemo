@@ -17,7 +17,6 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String splash(Model model) {
-		model.addAttribute("message", "teste");
 		if (SecurityConfiguration.isFullyAuthenticated())
 			return "home";
 		else

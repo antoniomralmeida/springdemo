@@ -96,18 +96,19 @@
 		</div>
 	</nav>
 	<div class="container body-content">
-		<br> <br> <br>
-		<div th:if="${param.error}">
-			<div class="alert alert-danger"
-				th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message} ">Mensagem
-				de erro!</div>
-		</div>
-		<div th:if="${param.msg}">
-			<div th:text="${param.msg}" class="alert alert-info">Aviso!</div>
-		</div>
-		<div class="alert alert-success" th:text="${mensagem}"
-			th:if="${not #strings.isEmpty(mensagem)}"></div>
 		<div class="row">
+			<div th:if="${param.error}">
+				<div class="alert alert-danger"
+					th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message} ">Mensagem
+					de erro!</div>
+			</div>
+			<div th:if="${info}">
+				<div th:text="${info}" class="alert alert-info">alert
+					alert-info</div>
+			</div>
+			<div th:if="${message}">
+				<div th:text="${message}" class="alert alert-success">alert-success</div>
+			</div>
 			<div layout:fragment="content">O conteúdo das páginas filhas
 				aparecerão aqui.</div>
 		</div>
@@ -121,4 +122,5 @@
 </body>
 <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/3.2.0/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/demo.js}"></script>
 </html>

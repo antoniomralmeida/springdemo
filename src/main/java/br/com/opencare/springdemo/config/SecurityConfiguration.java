@@ -53,8 +53,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-		.antMatchers("/", "/images/**", "/css/**", "/webjars/**", "/error", "/sysuser/new/**").permitAll().anyRequest()
-		.authenticated().and().formLogin().loginPage("/login").permitAll().failureUrl("/login?error").successForwardUrl("/").permitAll();
+		.antMatchers("/", "/images/**", "/js/**", "/css/**", "/webjars/**", "/error", "/sysuser/new/**").permitAll().anyRequest()
+		.authenticated().and().formLogin().loginPage("/login").permitAll().failureUrl("/login?error").successForwardUrl("/").and().logout().logoutSuccessUrl("/").permitAll();
 	}
 
 	public static Boolean isFullyAuthenticated() {

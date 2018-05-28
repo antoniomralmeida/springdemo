@@ -39,7 +39,7 @@ public class SysUserController {
 	}
 
 	@PostMapping("/new")
-	public String save(@Valid SysUser sysUser, BindingResult result, Locale locale, Model model, RedirectAttributes ra) {
+	public String save(@Valid SysUser sysUser, BindingResult result, Locale locale, Model model) {
 		if (result.hasErrors()) 
 			return "register";
 		try {
@@ -49,7 +49,7 @@ public class SysUserController {
 			result.addError(new ObjectError("sysUser" , messageSource.getMessage(e.getClass().getName(), null, locale)));
 			return "register";
 		}
-		ra.addAttribute("message", "Sucesso!");
-		return "redirect:/";
+		model.addAttribute("message", "Sucesso!");
+		return "splash";
 	}
 }
