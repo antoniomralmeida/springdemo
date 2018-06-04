@@ -27,15 +27,16 @@ public class SysUser {
 	private long id;
 
 	@Column(length = 40, nullable = false)
-	@Size(min = 10)
+	@Size(min = 10, max=40)
 	private String name;
 
 	@Column(length = 40, nullable = false, unique = true)
 	@Email
 	@NotEmpty
+	@Size(max=40)
 	private String email;
 	
-	@Column(length = 60, nullable = false)
+	@Column(length = 100, nullable = false)
 	@Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", message = "Min 8, upper, lower, digit and special char.")
 	private String pwd;
 

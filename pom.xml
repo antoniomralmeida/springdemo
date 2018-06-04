@@ -114,6 +114,5 @@
 	</build>
 
 
-	<packaging>war</packaging>
 	<version>1.0</version>
 </project>

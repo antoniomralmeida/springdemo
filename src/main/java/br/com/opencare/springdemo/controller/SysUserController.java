@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.opencare.springdemo.config.GlobalLib;
 import br.com.opencare.springdemo.model.SysUser;
 import br.com.opencare.springdemo.repository.SysUserRepository;
 
@@ -24,13 +25,10 @@ import br.com.opencare.springdemo.repository.SysUserRepository;
 public class SysUserController {
 	@Autowired
 	SysUserRepository sysUserRepository;
-	
 	@Autowired
 	private MessageSource messageSource;
-	
 	@Autowired
 	PasswordEncoder passwordEncoder;
-
 
 	@GetMapping ("/new")
 	public String edit( Model model) {
@@ -46,7 +44,7 @@ public class SysUserController {
 			sysUser.setPwd(passwordEncoder.encode(sysUser.getPwd()));
 			sysUserRepository.save(sysUser);
 		} catch (Exception e) {		
-			result.addError(new ObjectError("sysUser" , messageSource.getMessage(e.getClass().getName(), null, locale)));
+			result.addError(new ObjectError("sysUser" , messageSource.getMessage(GlobalLib.getError(e), null, locale)));
 			return "register";
 		}
 		model.addAttribute("message", "Sucesso!");
